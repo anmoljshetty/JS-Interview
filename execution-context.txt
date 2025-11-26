@@ -1,0 +1,56 @@
+Everything in JS happens inside an "Execution Context"
+
+Execution Context contains 2 main parts:
+    1.Memory Component (Variable Environment):
+        Here variables and functions are stored like key-value pairs
+    2.Code Component (Thread of Execution)
+        Here code is executed one line at a time
+
+JS is synchronous,single threaded language (one thread at a time-->current line of code will be executed if the previous one is completed)
+
+
+------------------------------------------------------------------------
+
+Consider the below JS program ==>
+var n = 2;
+function square(num){
+    var ans = num*num;
+    return num;
+}
+var square2 = square(n);
+var square4 = square(4);
+
+Execution Context is created in 2 phases
+
+1st phase ==> Memory creation phase
+JS skims through program and allocates memory to variables and functions
+            key        ||     value
+            ----------------------------------------
+            n          ||     undefined
+            square     ||     square(num){
+                       ||         var ans = num*num;
+                       ||         return num;
+                       ||     }
+            square2    ||     undefined
+            square4    ||     undefined
+
+2nd phase ==> code Execution phase
+JS again goes through program,for variables like n,it changes its value from undefined to constant,skips the function
+Now when there's a function invocation,JS creates a whole new execution context for that function inside the "Global execution context" --> same things happens inside this execution context as well
+1st the memory creation,then the code execution
+then it returns the value to variable in global execution context and this execution context will be deleted
+After completing all lines of code,the global execution context will also be deleted
+
+Call stack maintains the order of execution of executed contexts
+
+callstack:-
+|        |
+|        |
+|        |
+|        |
+|        |
+|        |
+|        |
+|________|
+| Global |
+|________|
