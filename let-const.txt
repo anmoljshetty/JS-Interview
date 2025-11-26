@@ -1,0 +1,6 @@
+If you access let and const variables before initialising it,you will get an error instead of undefined.
+Because they are stored in a separate memory space
+
+The time since when this let/const were hoisted to till its initialised is known as "Temporal dead zone"
+
+You can initialise or modify the 'let' later but not the const
