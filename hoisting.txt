@@ -1,0 +1,2 @@
+hoisting is a phenomenon where u can access variables and functions even before u initalize it
+hoisting occurs due to memory creation phase of execution context
