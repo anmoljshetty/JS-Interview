@@ -1,0 +1,10 @@
+Lexical environment is local memory + reference to lexical environment of its parent.
+Which means that if declare a variable globally ,then even multiple nested function will also have access to it,as that function has lexical environment indirectly pointing to the global execution context
+
+JS will search for a variable in local memory first, if its not there then it will go to its parent's lexical environment and search
+If its not there as well,then that function will go to lexical environment of it's parent
+Basically this process continues untill we either find the variable or there are no more parent execution context.
+This phenomenon is known as "Scope chaining"
+
+
+Parent of global execution context is 'null'
